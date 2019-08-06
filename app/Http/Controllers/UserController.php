@@ -62,4 +62,14 @@ class UserController extends Controller
 
         return response()->json(compact('user'));
     }
+
+    public function logout()
+    {
+        JWTAuth::invalidate();
+        return response()->json([
+            'statusCode' => 200,
+            'statusMessage' => 'success',
+            'message' => 'User Logged Out',
+        ], 200);
+    }
 }
